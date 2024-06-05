@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(
+        "https://api.thedogapi.com/v1/images/search?limit=100&api_key=live_kpDnTm16Rv2OHPDDjvlWGNozll34qx2QsKGLbWVO9gbbZ4FA1FG6cEWNVoKAsurV&has_breeds=1"
+      );
+      const data = await res.json();
+      console.log(data);
+      // Filter out the images that have breed information
+    };
+
+    fetchData();
+  }, []);
+  return <div className="App">app</div>;
 }
 
 export default App;
