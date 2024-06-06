@@ -33,7 +33,7 @@ function Hero() {
       <Box>
         <Stack>
           <img
-            src="/puppy.png"
+            src="/compresspuppy.jpg"
             alt="hero"
             style={{
               width: belowSm ? "250px" : "400px",
