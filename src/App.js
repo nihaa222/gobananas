@@ -1,20 +1,21 @@
-import { useEffect } from "react";
 import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import Header from "./Components/Header";
+import About from "./Pages/About";
+import Search from "./Pages/Search";
 
 function App() {
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(
-        "https://api.thedogapi.com/v1/images/search?limit=100&api_key=live_kpDnTm16Rv2OHPDDjvlWGNozll34qx2QsKGLbWVO9gbbZ4FA1FG6cEWNVoKAsurV&has_breeds=1"
-      );
-      const data = await res.json();
-      console.log(data);
-      // Filter out the images that have breed information
-    };
-
-    fetchData();
-  }, []);
-  return <div className="App">app</div>;
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/search" element={<Search />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
